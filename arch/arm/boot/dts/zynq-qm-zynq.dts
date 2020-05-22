@@ -1,0 +1,63 @@
+// SPDX-License-Identifier: GPL-2.0+
+/*
+ *  Copyright (C) 2011 - 2015 Xilinx
+ *  Copyright (C) 2012 National Instruments Corp.
+ */
+/dts-v1/;
+#include "zynq-7000.dtsi"
+
+/ {
+	model = "QMTech ZYNQ-7000 Development Board";
+	compatible = "qmtech,zynq-qm-zynq", "xlnx,zynq-qm-zynq", "xlnx,zynq-7000";
+
+	aliases {
+		ethernet0 = &gem0;
+		serial0 = &uart1;
+		mmc0 = &sdhci0;
+	};
+
+	memory@0 {
+		device_type = "memory";
+		reg = <0x0 0x20000000>;
+	};
+
+	chosen {
+		bootargs = "";
+		stdout-path = "serial0:115200n8";
+	};
+
+	leds {
+		compatible = "gpio-leds";
+
+		ds23 {
+			label = "qm:red:heartbeat";
+			gpios = <&gpio0 9 1>;
+			linux,default-trigger = "heartbeat";
+		};
+	};
+};
+
+&clkc {
+	ps-clk-frequency = <33333333>;
+};
+
+&gem0 {
+	status = "okay";
+	phy-mode = "rgmii-id";
+	phy-handle = <&ethernet_phy>;
+
+	ethernet_phy: ethernet-phy@0 {
+		reg = <0>;
+		device_type = "ethernet-phy";
+	};
+};
+
+&sdhci0 {
+	u-boot,dm-pre-reloc;
+	status = "okay";
+};
+
+&uart1 {
+	u-boot,dm-pre-reloc;
+	status = "okay";
+};
