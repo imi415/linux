@@ -54,18 +54,6 @@
 		reset-gpios = <&gpio0 55 GPIO_ACTIVE_LOW>;
  	};
 
-/*
-	reg_wifi_en: wifi-en {
-		compatible = "regulator-fixed";
-		regulator-name = "bt-en";
-		regulator-min-microvolt = <3300000>;
-		regulator-max-microvolt = <3300000>;
-		startup-delay-us= <100000>;
-		enable-active-high;
-		regulator-always-on;
-		gpio = <&gpio0 55 GPIO_ACTIVE_HIGH>;
-	};
-*/
 	reg_bt_nrst: bt-nrst {
 		compatible = "regulator-fixed";
 		regulator-name = "bt-nrst";
@@ -170,7 +158,6 @@
 	status = "okay";
 	bus-width = <4>;
 	non-removable;
-	/* vmmc-supply = <&reg_wifi_en>; */
 	max-frequency = <8000000>; /* Some idiot forgot to match trace length. */
 	no-1-8-v;
 	mmc-pwrseq = <&wifi_pwrseq>;
