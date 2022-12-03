@@ -1,0 +1,15 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Copyright (C) 2022 Yilin Sun
+ * Author: Yilin Sun <imi415@imi.moe>
+ */
+
+/dts-v1/;
+#include "imx6ull-myir-myc-y6ulx-emmc-512m.dtsi"
+#include "imx6ull-myir-myd-y6ulx-base.dtsi"
+
+/ {
+	model = "MYiR i.MX6ULL MYD-Y6ULX Development Kit with eMMC and 512MB RAM";
+	compatible = "myir,imx6ull-myd-y6ulx-emmc-512mb", "fsl,imx6ull";
+};
+

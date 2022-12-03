@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Copyright (C) 2022 Yilin Sun
+ * Author: Yilin Sun <imi415@imi.moe>
+ */
+
+#include "imx6ull-myir-myc-y6ulx.dtsi"
+
+/ {
+	memory@80000000 {
+		device_type = "memory";
+		reg = <0x80000000 0x20000000>;
+	};
+};
+
+&usdhc2 {
+	status = "okay";
+};
+
